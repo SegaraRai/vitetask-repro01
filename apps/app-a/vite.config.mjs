@@ -5,12 +5,17 @@ export default defineConfig({
     tasks: {
       build: {
         command: "node ../../scripts/build.mjs @repro/app-a dist/app-a.txt",
-        dependsOn: ["nested"],
+        dependsOn: ["parallel"],
         cache: false
       },
       nested: {
         command: "node ../../scripts/build.mjs @repro/app-a:nested dist/nested.txt",
         dependsOn: ["nested:wrapper"],
+        cache: false
+      },
+      parallel: {
+        command: "node ../../scripts/build.mjs @repro/app-a:parallel dist/parallel.txt",
+        dependsOn: ["parallel:a", "parallel:b"],
         cache: false
       },
       control: {
@@ -20,6 +25,14 @@ export default defineConfig({
       },
       "nested:wrapper": {
         command: "vp run unit:a && vp run unit:b",
+        cache: false
+      },
+      "parallel:a": {
+        command: "vp run unit:a",
+        cache: false
+      },
+      "parallel:b": {
+        command: "vp run unit:b",
         cache: false
       },
       "unit:a": {

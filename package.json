@@ -9,6 +9,7 @@
     "build": "vp run --filter ./apps/app-a build",
     "build:control": "vp run --filter ./apps/app-a control",
     "build:nested": "vp run --filter ./apps/app-a nested",
+    "build:parallel": "vp run --filter ./apps/app-a parallel",
     "clean": "node ./scripts/clean.mjs"
   },
   "devDependencies": {
