@@ -1,0 +1,18 @@
+{
+  "name": "vitetask-repro01",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "vp run --filter ./apps/app-a build",
+    "build:control": "vp run --filter ./apps/app-a control",
+    "build:nested": "vp run --filter ./apps/app-a nested",
+    "clean": "node ./scripts/clean.mjs"
+  },
+  "devDependencies": {
+    "vite-plus": "^0.1.16"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

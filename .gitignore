@@ -1,0 +1,4 @@
+node_modules
+
+build.log
+apps/app-a/dist
